@@ -1,4 +1,4 @@
-from flask import *
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -16,5 +16,15 @@ def diminipage():
 def quickstart():
     return render_template('quickstart.html')
 
+@app.route('/tutorials/')
+@app.route('/tutorials')
+def tutorialspage():
+    return render_template('tutorials.html')
+
+@app.route('/documentation/')
+@app.route('/documentation')
+def documentationpage():
+    return render_template('documentation.html')
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='7272', debug = True)
+    app.run(host='0.0.0.0', port=7272, debug = True)
